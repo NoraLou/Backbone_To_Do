@@ -1,2 +1,2 @@
 
-var TodoItems = Backbone.Model.extend({});
+var TodoItems = Backbone.Collection.extend({});

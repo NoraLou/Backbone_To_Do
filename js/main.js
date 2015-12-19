@@ -1,10 +1,11 @@
-
-
-
-
 $(document).ready(function(){
-  var todoItem = new TodoItem({description:"Make it happen"});
+  var todoItems = new TodoItems([
+    new TodoItem({ description: "TodoItem 1" }),
+    new TodoItem({ description: "TodoItem 2" })
+    ]);
 
-  var todoItemView = new TodoItemView({model: todoItem});
-  $("body").append(todoItemView.render().$el);
+  var todoItemsView = new TodoItemsView({
+    collection: todoItems
+  });
+  $("body").append(todoItemsView.render().$el);
 });
