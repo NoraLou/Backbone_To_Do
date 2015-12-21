@@ -1,9 +1,5 @@
 var TodoItemsView = Backbone.View.extend({
 
-  tagName: "ul",
-
-  id: "todoItems",
-
   initialize: function(options){
     if (!(options && options.collection))
       throw new Error("collection is not specified.");
@@ -36,22 +32,16 @@ var TodoItemsView = Backbone.View.extend({
   addTodo: function(){
     var $newTask = $("#newTodoItem");
     if($newTask.val()){
-      var todoItem = new TodoItem({description: $newTask.val()});
-      this.collection.add(todoItem);
+      var todoItem = new TodoItem({title: $newTask.val()});
+      this.collection.create(todoItem);
       $newTask.val('');
     }
   },
 
   render: function(){
     this.$el.append("<input type='text' autofocus id='newTodoItem'></input>")
-
     this.$el.append("<button id='add'>ADD</button>");
-
-    var self = this;
-    this.collection.each(function(todoItem){
-      var view = new TodoItemView({ model: todoItem });
-      self.$el.append(view.render().$el);
-    });
+    this.$el.append("<ul id = 'todoItems'></ul>");
 
     return this;
   }
