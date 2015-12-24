@@ -1,4 +1,4 @@
-
+/** documentation */
 var TodoItemView = Backbone.View.extend({
 
   tagName:"li",

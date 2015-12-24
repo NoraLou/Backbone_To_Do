@@ -1,4 +1,4 @@
-
+/** documentation */
 var TodoItem = Backbone.Model.extend({
 
   defaults:{
